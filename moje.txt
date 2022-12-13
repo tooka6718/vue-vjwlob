@@ -1,0 +1,8 @@
+v-bind:class="expamle" można zastąpić samym :class ...
+
+v-on:click="someMethod" moża zastąpić @click
+
+
+to samo 
+<input type="text" :value="name" @input="name = $event.target.value" />
+<input type="text" v-model = "name" />
