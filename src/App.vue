@@ -16,6 +16,7 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue';
+import AppButton from './components/AppButton.vue';
 export default {
   name: 'App',
 
@@ -31,11 +32,7 @@ export default {
 
   components: {
     // HelloWorld,
-    'app-button': {
-      template: `
-        
-      `,
-    },
+    'app-button': AppButton,
   },
 };
 </script>
