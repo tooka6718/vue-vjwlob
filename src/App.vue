@@ -2,8 +2,8 @@
   
   <div class="flex min-h-screen w-screen flex-col justify-center items-center">
   
-    <h2 class="font-bold mb-2 border">Assignments</h2>
-    <ul class="border">
+    <h2 class="font-bold mb-2 border p-4">Assignments</h2>
+    <ul class="border p-4">
       <li v-for="assignment in assignments" >
 
         <label class="flex justify-between">
