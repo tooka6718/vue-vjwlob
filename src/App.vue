@@ -10,7 +10,7 @@
       </li>
     </ul>
 
-    <app-button>Submit testowanie</app-button>
+    <app-button type="primary">Submit Slot</app-button>
   </div>
 </template>
 
