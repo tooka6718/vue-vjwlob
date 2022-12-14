@@ -1,22 +1,13 @@
 <template>
-  <div class="">
-    <input type="text" :value="name" @input="name = $event.target.value" />
-    <br />
-    <p>{{ name }}</p>
-    <div>{{ msg }}</div>
-  </div>
+  <div class=""></div>
 </template>
 
 <script>
 export default {
   data() {
-    return {
-      name: 'test',
-    };
+    return {};
   },
 
-  props: {
-    msg: String,
-  },
+  props: {},
 };
 </script>
