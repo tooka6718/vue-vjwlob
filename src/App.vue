@@ -15,10 +15,7 @@
 
       </li>
     </ul>
-    <pre>
     
-      {{assignments}}
-    </pre>
   </div>
 
 </template>
