@@ -4,18 +4,20 @@
   
     <h2 class="font-bold mb-2 border">Assignments</h2>
     <ul class="border">
-      <li v-for="assignment in assignments">
+      <li v-for="assignment in assignments" >
 
-        <label>
+        <label class="flex justify-between">
 
           {{ assignment.name}}
-          <input type="checkbox" v-model="assignment.complete">
+          <input type="checkbox" v-model="assignment.complete" class="ml-5">
 
         </label>
 
       </li>
     </ul>
-    
+    <pre>
+      {{assignments}}
+    </pre>
   </div>
 
 </template>
