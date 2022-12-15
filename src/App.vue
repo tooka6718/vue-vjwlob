@@ -1,8 +1,13 @@
 <template>
   <div class="flex min-h-screen w-screen flex-col items-center">
-    <h2 class="font-bold mb-2 border p-4 my-4">Assignments</h2>
+    <h2
+      class="font-bold mb-2 border p-4 my-4"
+      v-show="inProgressAssignments.length"
+    >
+      In Progress
+    </h2>
     <ul class="border p-4">
-      <li v-for="assignment in assignments">
+      <li v-for="assignment in inProgressAssignments" :key="assignment.id">
         <label class="flex justify-between">
           {{ assignment.name }}
           <input type="checkbox" v-model="assignment.complete" class="ml-5" />
@@ -10,7 +15,22 @@
       </li>
     </ul>
 
-    <app-button :processing="true">Submit Slot</app-button>
+    <h2
+      class="font-bold mb-2 border p-4 my-4"
+      v-show="completedAssignments.length"
+    >
+      Completed
+    </h2>
+    <ul class="border p-4">
+      <li v-for="assignment in completedAssignments" :key="assignment.id">
+        <label class="flex justify-between">
+          {{ assignment.name }}
+          <input type="checkbox" v-model="assignment.complete" class="ml-5" />
+        </label>
+      </li>
+    </ul>
+
+    <!-- <app-button :processing="false">Submit Slot</app-button> -->
   </div>
 </template>
 
@@ -33,6 +53,16 @@ export default {
   components: {
     // HelloWorld,
     'app-button': AppButton,
+  },
+
+  computed: {
+    inProgressAssignments() {
+      return this.assignments.filter((assignment) => !assignment.complete);
+    },
+
+    completedAssignments() {
+      return this.assignments.filter((assignment) => assignment.complete);
+    },
   },
 };
 </script>

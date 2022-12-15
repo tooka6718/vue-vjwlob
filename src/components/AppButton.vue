@@ -41,6 +41,9 @@ export default {
   }
 }
 
+.is-loading {
+  color: transparent;
+}
 .is-loading:before {
   content: '';
   box-sizing: border-box;
