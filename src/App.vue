@@ -1,8 +1,25 @@
 <template>
-  <div class="flex min-h-screen w-screen flex-col items-center">
-    <Assignments :assignments="inProgressAssignments" title="In Progress" />
-    <Assignments :assignments="completedAssignments" title="Completed" />
-    <!-- <app-button :processing="false">Submit Slot</app-button> -->
+  <div class="w-1/2 mx-auto">
+    <div class="flex flex-col mb-5">
+      <Assignments :assignments="inProgressAssignments" title="In Progress" />
+
+      <Assignments :assignments="completedAssignments" title="Completed" />
+
+      <!-- click submit call method add  e.preventdevault -->
+
+      <form class="" @submit.prevent="add">
+        <div class="border border-gray-400 text-black">
+          <input
+            placeholder="New Assignment."
+            class="p-2"
+            v-model="newAssignment"
+          />
+          <button type="submit" class="p-2 border-l">Add</button>
+        </div>
+      </form>
+
+      <!-- <app-button :processing="false">Submit Slot</app-button> -->
+    </div>
   </div>
 </template>
 
@@ -20,6 +37,8 @@ export default {
         { name: 'Read chapter 4', complete: false, id: 2 },
         { name: 'Turn in Homework', complete: false, id: 3 },
       ],
+
+      newAssignment: '',
     };
   },
 
@@ -27,6 +46,18 @@ export default {
     // HelloWorld,
     'app-button': AppButton,
     Assignments,
+  },
+
+  methods: {
+    add() {
+      this.assignments.push({
+        name: this.newAssignment,
+        complete: false,
+        id: this.assignments.length + 1,
+      });
+
+      this.newAssignment = '';
+    },
   },
 
   computed: {
