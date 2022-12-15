@@ -39,9 +39,9 @@ export default {
   },
 
   methods: {
-    add_app(n) {
+    add_app(name) {
       this.assignments.push({
-        name: n,
+        name: name,
         complete: false,
         id: this.assignments.length + 1,
       });
