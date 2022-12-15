@@ -1,35 +1,7 @@
 <template>
   <div class="flex min-h-screen w-screen flex-col items-center">
-    <h2
-      class="font-bold mb-2 border p-4 my-4"
-      v-show="inProgressAssignments.length"
-    >
-      In Progress
-    </h2>
-    <ul class="border p-4">
-      <li v-for="assignment in inProgressAssignments" :key="assignment.id">
-        <label class="flex justify-between">
-          {{ assignment.name }}
-          <input type="checkbox" v-model="assignment.complete" class="ml-5" />
-        </label>
-      </li>
-    </ul>
-
-    <h2
-      class="font-bold mb-2 border p-4 my-4"
-      v-show="completedAssignments.length"
-    >
-      Completed
-    </h2>
-    <ul class="border p-4">
-      <li v-for="assignment in completedAssignments" :key="assignment.id">
-        <label class="flex justify-between">
-          {{ assignment.name }}
-          <input type="checkbox" v-model="assignment.complete" class="ml-5" />
-        </label>
-      </li>
-    </ul>
-
+    <Assignments :assignments="inProgressAssignments" title="In Progress" />
+    <Assignments :assignments="completedAssignments" title="Completed" />
     <!-- <app-button :processing="false">Submit Slot</app-button> -->
   </div>
 </template>
@@ -37,6 +9,7 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue';
 import AppButton from './components/AppButton.vue';
+import Assignments from './components/Assignments.vue';
 export default {
   name: 'App',
 
@@ -53,6 +26,7 @@ export default {
   components: {
     // HelloWorld,
     'app-button': AppButton,
+    Assignments,
   },
 
   computed: {
@@ -62,6 +36,16 @@ export default {
 
     completedAssignments() {
       return this.assignments.filter((assignment) => assignment.complete);
+    },
+
+    // można i tak ale wtedy w propsie :assignments="filters.inProgress"
+    filters() {
+      return {
+        inProgress: this.assignments.filter(
+          (assignment) => !assignment.complete
+        ),
+        completed: this.assignments.filter((assignment) => assignment.complete),
+      };
     },
   },
 };
