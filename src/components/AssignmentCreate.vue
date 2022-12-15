@@ -1,5 +1,5 @@
 <template>
-  <div>
+  
     <form class="" @submit.prevent="add">
       <div class="border border-gray-400 text-black">
         <input
@@ -8,7 +8,7 @@
           v-model="newAssignment"
         />
         <button type="submit" class="p-2 border-l">Add</button>
-      </div>
+    
     </form>
   </divide>
 </template>
