@@ -10,7 +10,7 @@
       </li>
     </ul>
 
-    <app-button :processing="false">Submit Slot</app-button>
+    <app-button :processing="true">Submit Slot</app-button>
   </div>
 </template>
 
