@@ -6,7 +6,7 @@
         class="p-2"
         v-model="newAssignment"
       />
-      <button type="submit" class="border-l p-2 bg-gray-400">Add</button>
+      <button type="submit" class="border-l p-2 bg-gray-400 w-full">Add</button>
     </div>
   </form>
 </template>
